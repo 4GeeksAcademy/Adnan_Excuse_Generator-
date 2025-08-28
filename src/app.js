@@ -1,40 +1,23 @@
-import "bootstrap";
-import "./style.css";
+let categories = [
+  ["The dog", "My grandma", "The mailman", "My bird"],
+  ["ate", "peed on", "crushed", "broke"],
+  ["my homework", "my phone", "the car"],
+  ["before the class", "when I was sleeping", "while I was exercising", "during my lunch", "while I was praying"]
+];
 
-
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
-
-function getRandomNumber(a, b) {
-    return Math.floor(Math.random() * (b - a + 1)) + a;
+function getRandomExcuse() {
+  let excuse = categories.map(arr => arr[Math.floor(Math.random() * arr.length)]).join(" ");
+  return excuse + ".";
 }
 
-function getRandom(anyArray) {
-    let max = anyArray.length - 1;
-    let min = 0;
-    let random = getRandomNumber(min, max);
-    return anyArray[random];
-}
+document.addEventListener("DOMContentLoaded", function () {
+  const excuseEl = document.querySelector("#excuse");
+  const buttonEl = document.querySelector("#generate-btn");
 
-let who = ['The dog', 'My grandma', 'The mailman', 'My bird'];
-let action = ['ate', 'peed on', 'crushed', 'broke'];
-let what = ['my homework', 'my phone', 'the car'];
-let when = ['before the class', 'when I was sleeping', 'while I was exercising', 'during my lunch', 'while I was praying'];
 
-window.onload = function() {
-  // write your code here
-  let excuse =    
-    getRandom(who) + " " +
-    getRandom(action) + " " +
-    getRandom(what) + " " +
-    getRandom(when) + ".";
-  document.querySelector("#excuse").innerHTML = excuse;
-  document.querySelector('#generate-btn').addEventListener('click', function() {
-    let newExcuse =    
-      getRandom(who) + " " +
-      getRandom(action) + " " +
-      getRandom(what) + " " +
-      getRandom(when) + ".";
-    document.querySelector("#excuse").innerHTML = newExcuse; 
-  }); 
-};
+  excuseEl.innerHTML = "Click the button to get an excuse!";
+
+  buttonEl.addEventListener("click", function () {
+    excuseEl.innerHTML = getRandomExcuse();
+  });
+});

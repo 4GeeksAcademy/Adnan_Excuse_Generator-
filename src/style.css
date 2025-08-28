@@ -1,6 +1,5 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
-
 body, html {
   height: 100%;
   margin: 0;
@@ -11,7 +10,7 @@ body, html {
   align-items: center;
 }
 h1 {
-  font-size: 1.8rem; 
+  font-size: 1.5rem; 
   max-width: 600px;  
   margin: 0 auto;    
 }
@@ -22,7 +21,6 @@ h1 {
   flex-direction: column;
   gap: 20px; 
 }
-
 
 .title-box {
   background-color: #ffecb3; 
